@@ -1,0 +1,3 @@
+sed -i 's/\r$//' activate
+
+This command converts windows line endings to linux to allow the venv to start

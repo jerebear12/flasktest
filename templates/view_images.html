@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Seaweed Test</title>
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    <header>
+        <div class="header-div">
+            <h1 class="header-h1">View Images</h1>
+        </div>
+    </header>
+    <body>
+        <button type="button" id="back-button">Back</button>
+        <div class="container">
+            {% for image in images %}
+                <img class="image" src="{{ ('http://192.168.100.5:8888' + image) }}">
+            {% endfor %}
+        </div>
+    </body>
+    <footer>
+        
+    </footer>
+    <script type="text/javascript">
+        document.getElementById("back-button").onclick = function () {
+            location.href = "/";
+        };
+    </script>
+</html>

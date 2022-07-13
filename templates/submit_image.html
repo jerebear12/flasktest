@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Seaweed Test</title>
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    <header>
+        <div class="header-div">
+            <h1 class="header-h1">Submit an Image</h1>
+        </div>
+    </header>
+    <body>
+        <button type="button" id="back-button">Back</button>
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form id="images-form" method="post" action="", enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="picture-div">
+                    {{ form.picture() }}
+                </div>
+                <div class="error-span">
+                    {% for error in form.picture.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="submit-div">
+                    {{ form.submit(class="submit-button") }}
+                </div>
+                
+            </form>
+        </div>
+        
+    </body>
+    <footer>
+        
+    </footer>
+    <script type="text/javascript" src="static/main.js" defer></script>
+    <script type="text/javascript">
+        document.getElementById("back-button").onclick = function () {
+            location.href = "/";
+        };
+    </script>
+</html>
